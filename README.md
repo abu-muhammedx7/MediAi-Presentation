@@ -1,4 +1,3 @@
-Here's your structured and polished `README.md` file in Markdown format. You can copy and paste this directly:
 
 ````markdown
 # MEDIAI - AI Medical Assistant
