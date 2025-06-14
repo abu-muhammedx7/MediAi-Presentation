@@ -1,0 +1,303 @@
+:root {
+    /* Color System */
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --secondary: #059669;
+    --danger: #dc2626;
+    --light: #ffffff;
+    --dark: #1e293b;
+    --gray: #64748b;
+    --gray-light: #f1f5f9;
+    
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    
+    /* Typography */
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    
+    /* Layout */
+    --max-width: 1200px;
+    --header-height: 4rem;
+    --input-height: 3.5rem;
+    --border-radius: 0.5rem;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
+    color: var(--dark);
+    background-color: #f8fafc;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.app-header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--light);
+    padding: 0 var(--space-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.header-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.logo i {
+    font-size: 1.5rem;
+}
+
+.logo h1 {
+    font-size: var(--text-xl);
+    font-weight: 600;
+}
+
+/* Chat Container */
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+    padding: var(--space-md);
+}
+
+.chat-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - var(--header-height));
+    background-color: var(--light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+/* Messages Area */
+.chat-messages {
+    flex: 1;
+    padding: var(--space-md);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.message {
+    max-width: 80%;
+    padding: var(--space-md);
+    border-radius: var(--border-radius);
+    line-height: 1.6;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.user-message {
+    align-self: flex-end;
+    background-color: var(--primary);
+    color: var(--light);
+    border-bottom-right-radius: 0.25rem;
+}
+
+.bot-message {
+    align-self: flex-start;
+    background-color: var(--light);
+    border: 1px solid var(--gray-light);
+    border-bottom-left-radius: 0.25rem;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Input Area */
+.input-area {
+    padding: var(--space-md);
+    border-top: 1px solid var(--gray-light);
+    background-color: var(--light);
+}
+
+.input-container {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xs);
+}
+
+#user-input {
+    flex: 1;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--gray-light);
+    border-radius: var(--border-radius);
+    font-size: var(--text-base);
+    min-height: var(--input-height);
+}
+
+#user-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0 var(--space-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    height: var(--input-height);
+    gap: var(--space-xs);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--light);
+    min-width: 3.5rem;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-primary:disabled {
+    background-color: var(--gray);
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--light);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Welcome Message */
+.welcome-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.welcome-content {
+    text-align: center;
+    max-width: 36rem;
+    padding: var(--space-xl);
+}
+
+.welcome-content h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-sm);
+    color: var(--dark);
+}
+
+.welcome-content p {
+    color: var(--gray);
+    margin-bottom: var(--space-lg);
+}
+
+/* Suggestions */
+.suggestions {
+    margin-top: var(--space-xl);
+}
+
+.suggestions h3 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--dark);
+}
+
+.suggestion-chips {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.chip {
+    background-color: var(--gray-light);
+    color: var(--dark);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: var(--text-sm);
+}
+
+.chip:hover {
+    background-color: var(--primary);
+    color: var(--light);
+}
+
+/* Disclaimer */
+.disclaimer {
+    font-size: var(--text-sm);
+    color: var(--gray);
+    text-align: center;
+}
+
+.disclaimer i {
+    margin-right: var(--space-xs);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(0.5rem); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    :root {
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+    }
+    
+    .chat-wrapper {
+        height: calc(100vh - var(--header-height) - env(safe-area-inset-bottom));
+    }
+    
+    .message {
+        max-width: 90%;
+        padding: var(--space-sm);
+    }
+    
+    .welcome-content {
+        padding: var(--space-md);
+    }
+}
